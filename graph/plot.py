@@ -8,10 +8,22 @@ np.set_printoptions(threshold=np.inf)
 import sys
 
 if __name__ ==  "__main__":
-    file = open("./llc-kernel-100k", "r")
+
+    # Check for input arguments
+    if len(sys.argv) != 3:
+        print("Usage: python3 plot.py inputfile outputfile")
+        exit()
+
+    # Get arguments
+    inputFile = sys.argv[1]
+    outputFile = sys.argv[2]
+
+    # Open the input file
+    file = open(inputFile, "r")
+
+    # Construct 2D matrix
     x = []
     y = []
-
     while True:
         line = file.readline()
         if not line:
@@ -19,29 +31,24 @@ if __name__ ==  "__main__":
         split = line.split(" ")
         x.append(int(split[0]))
         y.append(int(split[1]))
-
     a = np.zeros(shape=(max(y)+50000, max(x)+1), dtype="int32")
     for (secret, time) in zip(x, y):
         a[time][secret] += 1
-
+    # The following is for cutting the channel matrix to remove large areas of empty data
     # half = math.floor(len(a)/2)
-    a = a[27000:30000][:]
+    a = a[18000:21000][:]
 
+    # Construct graph
     plt.imshow(a, interpolation='nearest', aspect='auto')
     ax = plt.gca()
     ax.set_ylim(ax.get_ylim()[::-1])
     plt.colorbar(label='Frequency')
     plt.xlabel("Secret")
     plt.ylabel("Time (Cycles)")
-    # plt.yticks([0, 10000, 20000, 30000, 40000, 50000, 60000], [0+half, 10000+half, 20000+half, 30000+half, 40000+half, 50000+half, 60000+half])
-    # plt.yticks([0, 100, 200, 300, 400], [0+136500, 100+136500, 200+136500, 300+136500, 400+136500])
-    # plt.yticks([0, 50, 100, 150, 200], [0+900, 50+900, 100+900, 150+900, 200+900])
-    # plt.yticks([0, 50, 100, 150, 200, 250], [0+3100, 50+3100, 100+3100, 150+3100, 200+3100, 250+3100])
-    # plt.yticks([0, 50, 100, 150, 200], [0+1000, 50+1000, 100+1000, 150+1000, 200+1000])
-    # plt.yticks([0, 2000, 4000, 6000, 8000, 10000, 12000, 14000, 16000], [0+30000, 2000+30000, 4000+30000, 6000+30000, 8000+30000, 10000+30000, 12000+30000, 14000+30000, 16000+30000])
-    # plt.yticks([0, 100, 200, 300, 400, 500, 600], [0+48000, 100+48000, 200+48000, 300+48000, 400+48000, 500+48000, 600+48000])
-    # plt.yticks([0, 500, 1000, 1500, 2000], [0+28000, 500+28000, 1000+28000, 1500+28000, 2000+28000])
-    plt.yticks([0, 500, 1000, 1500, 2000, 2500], [0+27000, 500+27000, 1000+27000, 1500+27000, 2000+27000, 2500+27000])
+
+    plt.yticks([0, 500, 1000, 1500, 2000, 2500], [0+150, 500+150, 1000+150, 1500+150, 2000+150, 2500+150])
+    # plt.yticks([0, 500, 1000, 1500, 2000, 2500], [0+27000, 500+27000, 1000+27000, 1500+27000, 2000+27000, 2500+27000])
     plt.xticks([-0.5, 0.5, 1.5], [0, 1, 2])
 
-    plt.savefig("llc-kernel-100k.png")
+    # Output graph
+    plt.savefig(outputFile)
