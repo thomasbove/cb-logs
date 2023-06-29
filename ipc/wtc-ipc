@@ -1,0 +1,119 @@
+Hello World!
+init SPI
+status: 0x0000000000000025
+status: 0x0000000000000025
+SPI initialized!
+initializing SD... 
+Hello World!
+init SPI
+status: 0x0000000000000025
+status: 0x0000000000000025
+SPI initialized!
+initializing SD... 
+Hello World!
+init SPI
+status: 0x0000000000000025
+status: 0x0000000000000025
+SPI initialized!
+initializing SD... 
+Hello World!
+init SPI
+status: 0x0000000000000025
+status: 0x0000000000000025
+SPI initialized!
+initializing SD... 
+Hello World!
+init SPI
+status: 0x0000000000000025
+status: 0x0000000000000025
+SPI initialized!
+initializing SD... 
+Hello World!
+init SPI
+status: 0x0000000000000025
+status: 0x0000000000000025
+SPI initialized!
+initializing SD... 
+
+OpenSBI v0.8
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name       : ARIANE RISC-V
+Platform Features   : timer,mfdeleg
+Platform HART Count : 1
+Boot HART ID        : 0
+Boot HART ISA       : rv64imafdcsu
+BOOT HART Features  : pmp,scounteren,mcounteren
+BOOT HART PMP Count : 16
+Firmware Base       : 0x80000000
+Firmware Size       : 76 KB
+Runtime SBI Version : 0.2
+
+MIDELEG : 0x0000000000000222
+MEDELEG : 0x000000000000b109
+PMP0    : 0x0000000080000000-0x000000008001ffff (A)
+PMP1    : 0x0000000000000000-0x01ffffffffffffff (A,R,W,X)
+ELF-loader started on (HART 0) (NODES 1)
+  paddr=[80200000..803cc027]
+Looking for DTB in CPIO archive...found at 80215e98.
+Loaded DTB from 80215e98.
+   paddr=[85013000..85013fff]
+ELF-loading image 'kernel' to 84000000
+  paddr=[84000000..85012fff]
+  vaddr=[ffffffff84000000..ffffffff85012fff]
+  virt_entry=ffffffff84000000
+ELF-loading image 'sel4benchapp' to 85014000
+  paddr=[85014000..8521cfff]
+  vaddr=[10000..218fff]
+  virt_entry=27fba
+Enabling MMU and paging
+Jumping to kernel-image entry point...
+
+
+[;1m[37mse[32mL4[37m Benchmark[0m
+[32m==============[37m
+
+Switching to a safer, bigger stack... 
+Setting up global fault handler...
+Failed to allocate object of size 274877906944, error 1
+Failed to allocate object of size 137438953472, error 1
+Failed to allocate object of size 68719476736, error 1
+Failed to allocate object of size 34359738368, error 1
+Failed to allocate object of size 17179869184, error 1
+Failed to allocate object of size 8589934592, error 1
+Failed to allocate object of size 4294967296, error 1
+Failed to allocate object of size 2147483648, error 1
+Failed to allocate object of size 1073741824, error 1
+Failed to allocate object of size 536870912, error 1
+
+ipc Benchmarks
+==============
+
+Range for vaddr 0x10001000 with 1 4k pages not reserved!
+Mapping new pages to extend brk region failed
+
+Range for vaddr 0x10001000 with 1 4k pages not reserved!
+Mapping new pages to extend brk region failed
+
+Range for vaddr 0x10001000 with 1 4k pages not reserved!
+Mapping new pages to extend brk region failed
+
+Range for vaddr 0x10001000 with 1 4k pages not reserved!
+Mapping new pages to extend brk region failed
+
+Range for vaddr 0x10001000 with 1 4k pages not reserved!
+Mapping new pages to extend brk region failed
+
+JSON OUTPUT
+[{"Benchmark": "One way IPC microbenchmarks", "Results": [{"Function": "seL4_Call", "Direction": "client->server", "Client Prio": 254, "Server Prio": 254, "Same vspace?": true, "IPC length": 0, "Min": 954, "Max": 985, "Mean": 961.75, "Stddev": 9.1724224353947701, "Variance": 78.875, "Mode": 954.0, "Median": 956.5, "1st quantile": 954.75, "3rd quantile": 968.0, "Samples": 16, "Raw results": [970, 954, 955, 956, 972, 955, 985, 954, 955, 968, 966, 954, 957, 968, 965, 954]}, {"Function": "seL4_ReplyRecv", "Direction": "server->client", "Client Prio": 254, "Server Prio": 254, "Same vspace?": true, "IPC length": 0, "Min": 999, "Max": 1000, "Mean": 999.4375, "Stddev": 0.68313005106397318, "Variance": 0.4375, "Mode": 999.0, "Median": 999.0, "1st quantile": 999.0, "3rd quantile": 1000.0, "Samples": 16, "Raw results": [1000, 999, 1000, 1000, 999, 999, 999, 999, 999, 1000, 999, 999, 999, 1000, 1000, 1000]}, {"Function": "seL4_Call", "Direction": "client->server", "Client Prio": 254, "Server Prio": 254, "Same vspace?": false, "IPC length": 0, "Min": 954, "Max": 999, "Mean": 961.625, "Stddev": 14.05228332573275, "Variance": 185.125, "Mode": 954.0, "Median": 954.5, "1st quantile": 954.0, "3rd quantile": 961.25, "Samples": 16, "Raw results": [954, 954, 962, 954, 961, 954, 985, 954, 982, 999, 954, 954, 955, 955, 955, 954]}, {"Function": "seL4_ReplyRecv", "Direction": "server->client", "Client Prio": 254, "Server Prio": 254, "Same vspace?": false, "IPC length": 0, "Min": 999, "Max": 1005, "Mean": 999.6875, "Stddev": 1.6532795690182993, "Variance": 2.5625, "Mode": 999.0, "Median": 999.0, "1st quantile": 999.0, "3rd quantile": 1000.0, "Samples": 16, "Raw results": [999, 999, 1000, 999, 1000, 1000, 999, 999, 999, 1000, 999, 999, 999, 1000, 999, 1005]}, {"Function": "seL4_Send", "Direction": "client->server", "Client Prio": 253, "Server Prio": 254, "Same vspace?": false, "IPC length": 0, "Min": 2618, "Max": 2719, "Mean": 2671.1875, "Stddev": 30.204856121712172, "Variance": 855.3125, "Mode": 2667.0, "Median": 2674.5, "1st quantile": 2650.5, "3rd quantile": 2698.0, "Samples": 16, "Raw results": [2719, 2680, 2698, 2683, 2681, 2618, 2667, 2651, 2705, 2649, 2699, 2636, 2698, 2669, 2667, 2619]}, {"Function": "seL4_Call", "Direction": "client->server", "Client Prio": 254, "Server Prio": 254, "Same vspace?": false, "IPC length": 10, "Min": 2937, "Max": 2999, "Mean": 2961.6875, "Stddev": 20.071538721948219, "Variance": 377.6875, "Mode": 2940.0, "Median": 2966.5, "1st quantile": 2940.75, "3rd quantile": 2971.75, "Samples": 16, "Raw results": [2966, 2940, 2940, 2999, 2968, 2937, 2955, 2968, 2967, 2941, 2975, 2999, 2947, 2940, 2974, 2971]}, {"Function": "seL4_ReplyRecv", "Direction": "server->client", "Client Prio": 254, "Server Prio": 254, "Same vspace?": false, "IPC length": 10, "Min": 2758, "Max": 2852, "Mean": 2800.75, "Stddev": 29.323483194645664, "Variance": 806.125, "Mode": 2758.0, "Median": 2800.5, "1st quantile": 2782.5, "3rd quantile": 2825.0, "Samples": 16, "Raw results": [2823, 2801, 2806, 2832, 2799, 2815, 2758, 2789, 2758, 2786, 2772, 2758, 2852, 2800, 2831, 2832]}]}]END JSON OUTPUT
+All is well in the universe.
+
+
+Fin

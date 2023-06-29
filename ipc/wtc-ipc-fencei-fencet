@@ -1,0 +1,95 @@
+Hello World!
+init SPI
+status: 0x0000000000000025
+status: 0x0000000000000025
+SPI initialized!
+initializing SD... 
+
+OpenSBI v0.8
+   ____                    _____ ____ _____
+  / __ \                  / ____|  _ \_   _|
+ | |  | |_ __   ___ _ __ | (___ | |_) || |
+ | |  | | '_ \ / _ \ '_ \ \___ \|  _ < | |
+ | |__| | |_) |  __/ | | |____) | |_) || |_
+  \____/| .__/ \___|_| |_|_____/|____/_____|
+        | |
+        |_|
+
+Platform Name       : ARIANE RISC-V
+Platform Features   : timer,mfdeleg
+Platform HART Count : 1
+Boot HART ID        : 0
+Boot HART ISA       : rv64imafdcsu
+BOOT HART Features  : pmp,scounteren,mcounteren
+BOOT HART PMP Count : 16
+Firmware Base       : 0x80000000
+Firmware Size       : 76 KB
+Runtime SBI Version : 0.2
+
+MIDELEG : 0x0000000000000222
+MEDELEG : 0x000000000000b109
+PMP0    : 0x0000000080000000-0x000000008001ffff (A)
+PMP1    : 0x0000000000000000-0x01ffffffffffffff (A,R,W,X)
+ELF-loader started on (HART 0) (NODES 1)
+  paddr=[80200000..803cc027]
+Looking for DTB in CPIO archive...found at 80215e98.
+Loaded DTB from 80215e98.
+   paddr=[85013000..85013fff]
+ELF-loading image 'kernel' to 84000000
+  paddr=[84000000..85012fff]
+  vaddr=[ffffffff84000000..ffffffff85012fff]
+  virt_entry=ffffffff84000000
+ELF-loading image 'sel4benchapp' to 85014000
+  paddr=[85014000..8521cfff]
+  vaddr=[10000..218fff]
+  virt_entry=27fba
+Enabling MMU and paging
+Jumping to kernel-image entry point...
+
+
+[;1m[37mse[32mL4[37m Benchmark[0m
+[32m==============[37m
+
+Switching to a safer, bigger stack... 
+Setting up global fault handler...
+Failed to allocate object of size 274877906944, error 1
+Failed to allocate object of size 137438953472, error 1
+Failed to allocate object of size 68719476736, error 1
+Failed to allocate object of size 34359738368, error 1
+Failed to allocate object of size 17179869184, error 1
+Failed to allocate object of size 8589934592, error 1
+Failed to allocate object of size 4294967296, error 1
+Failed to allocate object of size 2147483648, error 1
+Failed to allocate object of size 1073741824, error 1
+Failed to allocate object of size 536870912, error 1
+
+ipc Benchmarks
+==============
+
+Range for vaddr 0x10001000 with 1 4k pages not reserved!
+Mapping new pages to extend brk region failed
+
+Range for vaddr 0x10001000 with 1 4k pages not reserved!
+Mapping new pages to extend brk region failed
+
+Range for vaddr 0x10001000 with 1 4k pages not reserved!
+Mapping new pages to extend brk region failed
+
+Range for vaddr 0x10001000 with 1 4k pages not reserved!
+Mapping new pages to extend brk region failed
+
+Range for vaddr 0x10001000 with 1 4k pages not reserved!
+Mapping new pages to extend brk region failed
+
+JSON OUTPUT
+[{"Benchmark": "One way IPC microbenchmarks", "Results": [{"Function": "seL4_Call", "Direction": "client->server", "Client Prio": 254, "Server Prio": 254, "Same vspace?": true, "IPC length": 0, "Min": 969, "Max": 970, "Mean": 969.4375, "Stddev": 0.68313005106397318, "Variance": 0.4375, "Mode": 969.0, "Median": 969.0, "1st quantile": 969.0, "3rd quantile": 970.0, "Samples": 16, "Raw results": [969, 969, 970, 969, 970, 969, 970, 969, 970, 969, 970, 969, 970, 969, 970, 969]}, {"Function": "seL4_ReplyRecv", "Direction": "server->client", "Client Prio": 254, "Server Prio": 254, "Same vspace?": true, "IPC length": 0, "Min": 999, "Max": 999, "Mean": 999.0, "Stddev": 0.0, "Variance": 0.0, "Mode": 999.0, "Median": 999.0, "1st quantile": 999.0, "3rd quantile": 999.0, "Samples": 16, "Raw results": [999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999]}, {"Function": "seL4_Call", "Direction": "client->server", "Client Prio": 254, "Server Prio": 254, "Same vspace?": false, "IPC length": 0, "Min": 969, "Max": 969, "Mean": 969.0, "Stddev": 0.0, "Variance": 0.0, "Mode": 969.0, "Median": 969.0, "1st quantile": 969.0, "3rd quantile": 969.0, "Samples": 16, "Raw results": [969, 969, 969, 969, 969, 969, 969, 969, 969, 969, 969, 969, 969, 969, 969, 969]}, {"Function": "seL4_ReplyRecv", "Direction": "server->client", "Client Prio": 254, "Server Prio": 254, "Same vspace?": false, "IPC length": 0, "Min": 999, "Max": 999, "Mean": 999.0, "Stddev": 0.0, "Variance": 0.0, "Mode": 999.0, "Median": 999.0, "1st quantile": 999.0, "3rd quantile": 999.0, "Samples": 16, "Raw results": [999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999, 999]}, {"Function": "seL4_Send", "Direction": "client->server", "Client Prio": 253, "Server Prio": 254, "Same vspace?": false, "IPC length": 0, "Min": 10058, "Max": 10111, "Mean": 10098.5, "Stddev": 15.055453054181619, "Variance": 212.5, "Mode": 10090.0, "Median": 10100.5, "1st quantile": 10090.0, "3rd quantile": 10111.0, "Samples": 16, "Raw results": [10058, 10111, 10090, 10111, 10090, 10111, 10090, 10111, 10090, 10111, 10090, 10111, 10090, 10111, 10090, 10111]}, {"Function": "seL4_Call", "Direction": "client->server", "Client Prio": 254, "Server Prio": 254, "Same vspace?": false, "IPC length": 10, "Min": 10593, "Max": 10597, "Mean": 10595.0, "Stddev": 2.0655911179772888, "Variance": 4.0, "Mode": 10593.0, "Median": 10595.0, "1st quantile": 10593.0, "3rd quantile": 10597.0, "Samples": 16, "Raw results": [10597, 10593, 10597, 10593, 10597, 10593, 10597, 10593, 10597, 10593, 10597, 10593, 10597, 10593, 10597, 10593]}, {"Function": "seL4_ReplyRecv", "Direction": "server->client", "Client Prio": 254, "Server Prio": 254, "Same vspace?": false, "IPC length": 10, "Min": 10313, "Max": 10315, "Mean": 10314.0, "Stddev": 1.0327955589886444, "Variance": 1.0, "Mode": 10313.0, "Median": 10314.0, "1st quantile": 10313.0, "3rd quantile": 10315.0, "Samples": 16, "Raw results": [10315, 10313, 10315, 10313, 10315, 10313, 10315, 10313, 10315, 10313, 10315, 10313, 10315, 10313, 10315, 10313]}]}]END JSON OUTPUT
+All is well in the universe.
+
+
+Fin
+Hello World!
+init SPI
+status: 0x0000000000000025
+status: 0x0000000000000025
+SPI initialized!
+initializing SD... 
